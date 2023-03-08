@@ -1,0 +1,20 @@
+.product-img-slider {
+    // main container of both swipers
+    .swiper {
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: #fff;
+            width: 5rem;
+        }
+    }
+
+    .preview-swiper {
+    }
+
+    .sub-swiper {
+        img {
+            display: block;
+            height: 10rem;
+        }
+    }
+}

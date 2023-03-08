@@ -1,0 +1,66 @@
+.product-preview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+
+    &:hover {
+        .photo img {
+            transform: scale(1.05);
+        }
+
+        .details__link svg {
+            transform: translateX(6px);
+        }
+    }
+
+    .photo {
+        width: 17.5rem;
+        height: 17rem;
+        overflow: hidden;
+
+        img {
+            display: block;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+    }
+
+    .details {
+        word-break: break-all;
+
+        &__price {
+            font-size: 1.5rem;
+            color: #5e5e5e;
+            line-height: 1.111em;
+            font-weight: 500;
+        }
+        &__name {
+            margin-top: 1rem;
+            margin-bottom: 0.2rem;
+            font-weight: 500;
+            font-size: 1.8rem;
+        }
+
+        &__desc {
+            line-height: 1.667em;
+            margin-bottom: 2rem;
+            color: #5a5a5a;
+            font-size: 1.2rem;
+            max-width: 90%;
+        }
+
+        &__link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.2rem;
+
+            svg {
+                font-size: 1.5rem;
+                transition: transform 0.2s ease;
+            }
+        }
+    }
+}

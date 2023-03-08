@@ -1,0 +1,126 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/variables.scss";
+
+header {
+    border-bottom: 1px solid #dadada;
+    padding: 2rem 0;
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    transition: all 0.2s ease-in;
+    position: sticky;
+    z-index: 99;
+    top: 0;
+
+    @include respond(phone) {
+        padding: 1.5rem 2rem;
+    }
+
+    .left {
+        display: flex;
+        align-items: center;
+        gap: 3.5rem;
+    }
+
+    .nav {
+        ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        &__link {
+            display: inline-block;
+            font-weight: 300;
+            font-size: 1.05rem;
+            padding: 1rem 1rem 2.5rem 1rem;
+            text-transform: uppercase;
+            border-bottom: 1px solid transparent;
+            color: #5e5e5e;
+            transition: border-color 300ms ease, color 300ms ease;
+            line-height: 1.143em;
+            letter-spacing: 0.08em;
+
+            &:hover {
+                border-bottom-color: #0d0d0d;
+                color: #0d0d0d;
+            }
+        }
+    }
+
+    .right {
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+    }
+
+    .cart-container {
+        position: relative;
+
+        .cart {
+            display: flex;
+            align-items: flex-end;
+            gap: 1.25rem;
+            font-size: 0.9rem;
+            background: none;
+            border: none;
+
+            &:hover {
+                .cart__items {
+                    transform: translateY(-2px);
+                }
+            }
+
+            &__bag {
+                position: relative;
+            }
+
+            &__items {
+                position: absolute;
+                right: -0.7rem;
+                top: -0.6rem;
+                color: #fff;
+                width: 1.25rem;
+                height: 1.25rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                background-color: $primary-color;
+                font-size: 0.7rem;
+                transition: transform 0.15s ease-in-out;
+            }
+
+            svg {
+                font-size: 1.5rem;
+            }
+
+            &__total {
+                font-weight: 300;
+            }
+        }
+    }
+
+    .bump {
+        animation: bump 300ms ease-out;
+    }
+
+    @keyframes bump {
+        0% {
+            transform: scale(1);
+        }
+        10% {
+            transform: scale(0.9);
+        }
+        30% {
+            transform: scale(1.1);
+        }
+        50% {
+            transform: scale(1.15);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+}

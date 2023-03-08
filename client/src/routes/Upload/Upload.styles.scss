@@ -1,0 +1,114 @@
+.upload {
+    transition: opacity 0.25s ease-in-out;
+    position: relative;
+    padding: 2rem 0;
+
+    .main {
+        display: flex;
+        gap: 3rem;
+    }
+
+    form {
+        .img-upload-container {
+            width: 40%;
+        }
+
+        .form-group {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+
+            .divider {
+                height: 5rem;
+                width: 1px;
+                background: #bbb;
+                align-self: flex-end;
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        .form-control {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            width: 100%;
+
+            label {
+                font-weight: bold;
+                text-transform: capitalize;
+            }
+
+            input,
+            textarea {
+                padding: 0.5rem;
+                border: 2px solid rgba(0, 0, 0, 0.2);
+                border-radius: 6px;
+                width: 100%;
+                transition: outline ease-in-out;
+                font-size: 1.1rem;
+            }
+        }
+
+        .price-size {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+
+            button {
+                border: none;
+                font-size: 1.5rem;
+
+                &:hover {
+                    transform: scale(1.025);
+                }
+            }
+        }
+    }
+
+    .img-upload-container {
+        height: 30rem;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 30rem;
+        gap: 0;
+
+        input {
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+    }
+
+    .action-buttons {
+        margin-top: 5rem;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    // .request-status-msg {
+    //     width: fit-content;
+    //     color: #fff;
+    //     position: absolute;
+    //     right: 5rem;
+    //     // transition: opacity 0.2s ease-in-out;
+    //     padding: 2rem;
+    //     // opacity: 0;
+
+    //     &.show {
+    //         opacity: 1;
+    //     }
+
+    //     &.succeeded {
+    //         background: #287cc0;
+    //     }
+
+    //     &.error {
+    //         background: rgb(232, 89, 89);
+    //     }
+    // }
+}

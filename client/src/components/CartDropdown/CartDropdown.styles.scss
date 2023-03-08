@@ -1,0 +1,125 @@
+@import "../../styles/variables.scss";
+
+.cart-dropdown {
+    position: absolute;
+    width: 22rem;
+    height: 25rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem;
+    border: 1px solid $primary-light;
+    background-color: #fff;
+    top: 3.5rem;
+    right: 0;
+    z-index: 5;
+
+    .orders {
+        min-height: 80%;
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        position: relative;
+        overflow: auto;
+        padding-bottom: 1rem;
+
+        &::-webkit-scrollbar {
+            width: 6px;
+            height: 10px;
+        }
+        &::-webkit-scrollbar-track {
+            background: #aaa;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: #000;
+            border-radius: 10px;
+        }
+
+        .empty-msg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            text-align: center;
+            color: $primary-light;
+            text-transform: uppercase;
+            font-size: 1.15rem;
+            letter-spacing: 1px;
+            transform: translate(-50%, -50%);
+        }
+
+        .order {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            padding: 1rem;
+
+            &__left {
+                display: flex;
+
+                .photo {
+                    width: 5rem;
+                    object-fit: cover;
+                }
+
+                .details {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    padding: 0.6rem 0.75rem;
+                    font-size: 1.02rem;
+                    text-align: left;
+                    text-transform: capitalize;
+                    font-weight: 500;
+
+                    .name {
+                        white-space: nowrap;
+                        font-weight: 600;
+                    }
+
+                    .label {
+                        color: $primary-light;
+                        font-weight: 400;
+                    }
+                }
+            }
+
+            &__right {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+
+                .add-on-item {
+                    border: 1px solid;
+                    padding: 0.25rem 0.5rem;
+                    display: flex;
+                    gap: 0.3rem;
+                    font-size: 0.8rem;
+                }
+            }
+        }
+    }
+
+    .go-to-cart {
+        height: 20%;
+        width: 100%;
+        letter-spacing: 0.5px;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        font-weight: 500;
+        border: 1px solid transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $primary-color;
+        color: #fff;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+            background-color: $primary-color-hover;
+        }
+    }
+}

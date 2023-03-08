@@ -1,0 +1,160 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.data-table {
+    position: relative;
+
+    .search {
+        margin-top: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #eee;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        color: #000;
+        padding: 0.6rem 1rem;
+        width: 20rem;
+        font-size: 1.05rem;
+
+        svg {
+            font-size: 1.5rem;
+        }
+
+        input {
+            width: 100%;
+            font-family: inherit;
+            padding: 0.5rem 0.85rem;
+            background: none;
+            outline: none;
+            border: none;
+            font-size: inherit;
+        }
+    }
+
+    .pagination {
+        padding: 0 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 1rem;
+        margin-top: 4rem;
+
+        button {
+            border: 1px solid #777;
+            // border: none;
+            cursor: pointer;
+            outline: none;
+            border-radius: 50%;
+            height: 2rem;
+            width: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease-in-out;
+
+            @include respond(phone) {
+                height: 2.5rem;
+                width: 2.5rem;
+                font-size: 1.25rem;
+            }
+
+            svg {
+                font-weight: bold;
+                font-size: 1.05rem;
+            }
+
+            &.active {
+                // background-color: $base-color;
+                border-color: transparent;
+                color: #fff;
+            }
+
+            &:hover {
+                color: #fff;
+                // background-color: $base-color-light;
+            }
+        }
+    }
+
+    .no-result-heading {
+        margin-top: 2rem;
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+    .table {
+        text-align: center;
+        width: 100%;
+
+        thead tr {
+            border: 1px solid #d0d1d5;
+        }
+
+        tr {
+            grid-template-columns: repeat(6, 1fr);
+            border-radius: 1rem;
+            margin-top: 1rem;
+            display: grid;
+            gap: 1rem;
+            padding: 1rem;
+            align-items: center;
+        }
+
+        .status {
+            padding: 0.4rem 0.8rem;
+            width: fit-content;
+            justify-self: center;
+            text-transform: capitalize;
+            color: #000;
+        }
+
+        .capitalize {
+            text-transform: capitalize;
+        }
+    }
+
+    .actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        position: relative;
+
+        a,
+        button {
+            display: flex;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            background: none;
+            filter: brightness(0.9);
+
+            &:hover {
+                filter: brightness(1);
+            }
+        }
+
+        svg {
+            font-size: 1.5rem;
+        }
+
+        &__edit {
+            color: rgb(62, 62, 255);
+        }
+
+        &__del {
+            color: red;
+        }
+    }
+
+    .prices {
+        text-transform: capitalize;
+    }
+
+    .link {
+        font-size: 1rem;
+        text-decoration: underline;
+        color: #333;
+        margin-top: 2rem;
+    }
+}

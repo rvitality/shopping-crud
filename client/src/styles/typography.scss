@@ -1,0 +1,24 @@
+@import "./variables.scss";
+
+.section-paragraph {
+    color: $primary-light;
+    line-height: 1.667em;
+    max-width: 50%;
+    text-align: center;
+
+    &--dark {
+        color: $light-gray-color;
+    }
+}
+
+.large-heading {
+    font-size: 4rem;
+    line-height: 1.2;
+    font-weight: 400;
+}
+
+.primary-heading {
+    font-size: 2.7rem;
+    line-height: 1.19em;
+    font-weight: 500;
+}

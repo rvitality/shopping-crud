@@ -1,0 +1,87 @@
+@import "./variables.scss";
+
+.btn {
+    color: #fff;
+    border: 1px solid $primary-color;
+    text-transform: capitalize;
+    border-radius: 50rem;
+    padding: 0.8rem 1.8rem;
+    display: inline-block;
+    height: fit-content;
+    color: #000;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        background-color: $primary-color;
+        color: #fff;
+    }
+
+    &__filled {
+        color: #fff;
+        background-color: $primary-color;
+
+        &:hover {
+            background-color: $primary-color-hover;
+        }
+    }
+
+    &--light {
+        color: #fff;
+        border-color: #fff;
+
+        &:hover {
+            transform: translateY(-2px);
+        }
+    }
+
+    &--light-filled {
+        color: #000 !important;
+        background-color: #fff !important;
+
+        &:hover {
+            transform: translateY(-2px);
+        }
+    }
+}
+
+.link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    color: $primary-color;
+
+    svg {
+        font-size: 1.35rem;
+        transition: transform 0.2s ease;
+    }
+
+    &:hover {
+        svg {
+            transform: translateX(5px);
+        }
+    }
+
+    &--reversed {
+        &:hover {
+            svg {
+                transform: translateX(-5px);
+            }
+        }
+    }
+}
+
+.line {
+    height: 4px;
+    background-color: $primary-color;
+    max-width: 5rem;
+    width: 100%;
+    margin-bottom: 1rem;
+
+    &--wide {
+        max-width: 7rem;
+    }
+
+    &--light {
+        background-color: #fff;
+    }
+}

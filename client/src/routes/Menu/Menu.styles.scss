@@ -1,0 +1,15 @@
+@import "../../styles/variables.scss";
+
+.menu {
+    .section-heading .section-paragraph {
+        font-size: 1.075rem;
+        max-width: 60%;
+    }
+
+    .products {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 1rem;
+        row-gap: 4rem;
+    }
+}
