@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 
 import { BsArrowLeft } from "react-icons/bs";
-import { MdOutlineAdd } from "react-icons/md";
+import { MdOutlineAdd, MdOutlineAirlineSeatLegroomReduced } from "react-icons/md";
 import { HiOutlineMinusSm, HiOutlineShoppingCart } from "react-icons/hi";
 import { BiTime } from "react-icons/bi";
 import { AiOutlineStock, AiFillStar } from "react-icons/ai";
@@ -34,27 +34,32 @@ const Product = props => {
     const { cart, onCartUpdate } = useCartContext();
 
     const [product, setProduct] = useState({});
-    let { name, photo, prices, description } = product;
+    let { name, photo, prices, category, desc } = product;
     const productPrices = prices ? JSON.parse(prices) : {};
     prices = Object.keys(productPrices).map(key => ({ [key]: productPrices[key] }));
 
+    const productCategory = category?.toLowerCase().split(" ").join("_");
+
     const location = useLocation();
     const productId = location.pathname.split("/")[2];
+
+    const [selectedSize, setSelectedSize] = useState("");
+    const [quantity, setQuantity] = useState(1);
 
     useEffect(() => {
         const fetchPosts = async () => {
             try {
                 const res = await axios.get(`/api/products/${productId}`);
                 setProduct(res.data);
+
+                const productPrices = prices ? JSON.parse(res.data?.prices) : {};
+                setSelectedSize(Object.keys(productPrices)[0]);
             } catch (err) {
                 console.log(err);
             }
         };
         fetchPosts();
     }, []);
-
-    const [selectedSize, setSelectedSize] = useState("solo");
-    const [quantity, setQuantity] = useState(1);
 
     const selectedPrice = +productPrices[selectedSize] || 1;
     const orderTotal = selectedPrice * quantity;
@@ -71,7 +76,6 @@ const Product = props => {
 
     const sizeChangeHandler = e => {
         setSelectedSize(e.target.value);
-        console.log(e.target.value);
     };
 
     const quantityChangeHandler = e => {
@@ -143,7 +147,7 @@ const Product = props => {
                                 <span className="stat__label">Prep time</span>
                             </div>
                         </div>
-                        <p className="details__desc">{description}</p>
+                        <p className="details__desc">{desc}</p>
 
                         <div className="total">
                             ₱
@@ -175,10 +179,12 @@ const Product = props => {
                                                     <span className="highlight">{size}</span>{" "}
                                                     {sizesInfo[size]}
                                                 </label>
-                                                <div className="free">
-                                                    {freeNori[size]}{" "}
-                                                    <span className="highlight">FREE</span> Nori
-                                                </div>
+                                                {productCategory === "baked_sushi" && (
+                                                    <div className="free">
+                                                        {freeNori[size]}{" "}
+                                                        <span className="highlight">FREE</span> Nori
+                                                    </div>
+                                                )}
                                             </div>
                                         </div>
                                     );

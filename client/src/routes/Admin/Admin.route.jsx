@@ -53,7 +53,11 @@ const Table = ({ dataToDisplay }) => {
                     return (
                         <tr key={id}>
                             <td>{index + 1}</td>
-                            <td className="capitalize">{name}</td>
+                            <td className="capitalize">
+                                <Link to={`/menu/${id}`} className="link">
+                                    {name}
+                                </Link>
+                            </td>
                             <td>{desc.length > 15 ? `${desc.slice(0, 15)}...` : desc}</td>
                             <td>{category}</td>
                             <td className="prices">{prices}</td>

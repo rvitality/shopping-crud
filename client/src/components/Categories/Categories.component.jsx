@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
-const CATEGORIES = ["baked sushi", "rice bowls", "takoyaki", "sushi", "pasta", "milktea"];
+const CATEGORIES = ["all", "baked sushi", "rice bowls", "takoyaki", "sushi", "pasta", "milktea"];
 
 import "./Categories.styles.scss";
 

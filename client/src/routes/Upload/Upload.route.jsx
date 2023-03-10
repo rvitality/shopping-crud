@@ -21,6 +21,8 @@ const NewProduct = props => {
     const navigate = useNavigate();
     const state = useLocation().state;
 
+    console.log(state);
+
     const [imgFileInput, setImgFileInput] = useState(state?.photo);
     const [imgFileReaderInput, setImgFileReaderInput] = useState();
 
@@ -99,6 +101,8 @@ const NewProduct = props => {
     } else if (imgFileInput) {
         productStyleDisplayImg = `../../../public/upload/${imgFileInput}`;
     }
+
+    console.log(productStyleDisplayImg);
 
     const upload = async () => {
         try {
@@ -261,7 +265,7 @@ const NewProduct = props => {
                         </button>
 
                         <button type="submit" className="btn btn__filled">
-                            {state ? "Update" : "Add"} Item
+                            {state ? "Update" : "Add"} Product
                         </button>
                     </div>
                 </form>

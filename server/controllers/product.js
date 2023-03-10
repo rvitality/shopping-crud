@@ -19,7 +19,10 @@ export const getProducts = (req, res) => {
 
     category = category ? category.split("_").join(" ").toLowerCase() : "";
 
-    const q = category ? "SELECT * FROM products WHERE category = ?" : "SELECT * from products";
+    let q = "SELECT * from products";
+    if (category && category !== "all") {
+        q = "SELECT * FROM products WHERE category = ?";
+    }
 
     db.query(q, [category], (err, data) => {
         if (err) return res.status(500).json(err);
